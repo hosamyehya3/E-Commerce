@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Exo } from "next/font/google";
 import "./globals.css";
+import Navbar from "./_components/navbar/page";
+import Footer from "./_components/navbar/footer/page";
+import { cn } from "@/lib/utils";
+import FirstNav from "./_components/FirstNav/page";
+import { Toaster } from "@/components/ui/toast"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+
+
+const ExoFont = Exo({
+  variable: "--font-Exo",
+ weight : ['200' , '400' , '700']
 });
 
 export const metadata: Metadata = {
@@ -19,11 +22,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html  lang="en" className={`${ExoFont.className} antialiased`  }  >
+     
+      
+   
+      {/* <FirstNav/> */}
+      <Navbar/>
+      <body className="min-h-full bg-gray-200  flex flex-col">{children}</body>
+      <Toaster/>
+      <Footer/>
     </html>
   );
 }
