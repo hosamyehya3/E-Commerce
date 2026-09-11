@@ -1,16 +1,16 @@
 'use client';
 
-import { userLogin } from '@/app/AllApi/actions/auth.actions';
+// import { userLogin } from '@/app/AllApi/actions/auth.actions';
 import { schemaLogin } from '@/app/Schema/SchemaLogin';
 import { Field, FieldError, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/toast';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import React, { useState, useEffect, useRef } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-
+import {signIn} from 'next-auth/react'
 export default function Login() {
   const navgate = useRouter()
   const { control, handleSubmit } = useForm({
@@ -25,9 +25,13 @@ export default function Login() {
 
   async function submitForm(retData: any) {
     console.log(retData);
-    const dataOfLogin = await userLogin(retData)
-    if (dataOfLogin) {
-      navgate.push('/home')
+const isLogin = await signIn('credentials' , {...retData , redirect:false} )
+    // const isLogin = await userLogin(retData)
+
+
+    
+    if (isLogin?.ok) {
+      navgate.push('/')
       toast.add({
         type: "success",
         description: "Success Login Now.",
@@ -38,6 +42,14 @@ export default function Login() {
         description: "Failed to Access.",
       })
     }
+
+
+
+
+
+
+
+
   }
 
 

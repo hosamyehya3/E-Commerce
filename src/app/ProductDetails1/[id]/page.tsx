@@ -14,7 +14,7 @@ const response = await getProductDetails1(id)
       <div className="w-full md:w-1/2 px-4 mb-8">
         <img src={response?.imageCover} alt="Product" className="w-full h-auto rounded-lg shadow-md mb-4" id="mainImage" />
         <div className="flex gap-4 py-4 justify-center overflow-x-auto">
-          {response?.images.map((photo)=>{return <>          <img key={response._id} src={photo} alt="Thumbnail 1" className="w-[200px] sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"  />
+          {response?.images.map((photo:any)=>{return <>          <img key={response._id} src={photo} alt="Thumbnail 1" className="w-[200px] sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"  />
 </>})}
 
         </div>

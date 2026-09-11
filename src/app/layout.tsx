@@ -6,6 +6,7 @@ import Footer from "./_components/navbar/footer/page";
 import { cn } from "@/lib/utils";
 import FirstNav from "./_components/FirstNav/page";
 import { Toaster } from "@/components/ui/toast"
+import MyProvider from "./_components/MyProvider/MyProvider";
 
 
 
@@ -27,10 +28,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       
    
       {/* <FirstNav/> */}
-      <Navbar/>
-      <body className="min-h-full bg-gray-200  flex flex-col">{children}</body>
-      <Toaster/>
+     
+      <body className="min-h-full bg-gray-200  flex flex-col">
+       
+<MyProvider>
+   <Navbar/>
+        {children}
+         <Toaster/>
       <Footer/>
+</MyProvider>
+ 
+
+        
+     
+        </body>
+     
     </html>
   );
 }

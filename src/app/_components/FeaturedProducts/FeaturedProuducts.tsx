@@ -25,7 +25,7 @@ export default async function FeaturedProuducts() {
 
     <div className='container  mt-[40px] grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-auto sm:gap-2 md:gap-4 lg:gap-5'>
       
-    {DataOfProducts?.map((Product:any)=>{ return <>     <div key={Product._id} className="w-72 mt-5 mb-4 bg-white mx-auto shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    {DataOfProducts?.map((Product:any)=>{ return <><div key={Product._id} className="w-72 mt-5 mb-4 bg-white mx-auto shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
 
 
   <Link href={`/ProductDetails1/${Product._id}`}>
