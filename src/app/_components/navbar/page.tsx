@@ -1,6 +1,4 @@
-
 'use client';
-
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
@@ -32,6 +30,7 @@ function handleLogOut(){
   }, []);
 
   return (
+    
     <div id="main-nav" className={`fixed top-0 left-0 right-0 z-50 w-full max-w-7xl mx-auto mt-8 my-5 px-4 ${isShrunk ? 'nav-shrunk' : ''}`}>
       <div 
         id="nav-container" 
@@ -39,9 +38,12 @@ function handleLogOut(){
           isShrunk ? 'glass py-2' : 'bg-white py-3'
         }`}
       >
-        <div className="text-xl flex gap-5 font-black text-green-500 tracking-tighter">
+        <Link href='/welcomePage'>
+            <div className="text-xl flex gap-5 font-black text-green-500 tracking-tighter">
           <Image src={img} alt="FreshCart Logo" width={130} height={80} />
         </div>
+        </Link>
+    
 
         <div 
           id="nav-links" 
@@ -51,7 +53,7 @@ function handleLogOut(){
         >
           <ul className="flex gap-5">
             <li>
-              <Link href="/products" className={path === '/products' ? 'active' : ''}>
+              <Link href="/home" className={path === '/home' ? 'active' : ''}>
                 Home
               </Link>
             </li>
@@ -66,8 +68,13 @@ function handleLogOut(){
               </Link>
             </li>
             <li>
-              <Link href="/categories" className={path === '/categories' ? 'active' : ''}>
+              <Link href="/categorey" className={path === '/categorey' ? 'active' : ''}>
                 Categories
+              </Link>
+            </li>
+            <li>
+              <Link href="/subcategorey" className={path === '/subcategorey' ? 'active' : ''}>
+               Sub All Categories
               </Link>
             </li>
           </ul>
@@ -90,7 +97,7 @@ function handleLogOut(){
           </button>
          </Link></> : "" }
     
-      {status === 'authenticated' ?    <button on onClick={handleLogOut}><span  className="sm:flex items-center gap-2 bg-[rgb(49,243,49)] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-green-700 shadow-lg shadow-green-200 transition">
+      {status === 'authenticated' ?    <button  onClick={handleLogOut}><span  className="sm:flex items-center gap-2 bg-[rgb(49,243,49)] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-green-700 shadow-lg shadow-green-200 transition">
             Log Out
           </span></button>  :  <Link href="/login" className="sm:flex items-center gap-2 bg-[rgb(49,243,49)] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-green-700 shadow-lg shadow-green-200 transition">
             Sign In
@@ -100,5 +107,6 @@ function handleLogOut(){
         </div>
       </div>
     </div>
+    
   );
 }

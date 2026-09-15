@@ -581,3 +581,123 @@ animation: moving 1s ease infinite;
   padding: 0;
 
       }
+.trans{
+  transition: all .5s linear;
+}
+
+
+.curser:hover{
+  cursor: pointer;
+}
+.isolate{
+  transition: all .7s linear;
+}
+.isolate:hover{
+transform: rotate3d(1, 5, 0, 20deg);
+cursor: pointer;
+box-shadow: 0 0 10px black;
+}
+
+
+
+.WelcomePage{
+
+  padding: 30px;
+  border:  2px solid transparent;
+  border-radius: 10px;
+  height: 200px;
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  transition: all 1s ease-in;
+}
+
+
+
+
+
+.WelcomePage::after{
+  content: "";
+  width:150px;
+  height: 150px;
+  position: absolute;
+  border-radius: 0 50% 30% 0 ;
+  background-color: rgba(86, 235, 86, 0.644);
+  top:350px;
+  left: -90px;
+  overflow: hidden;
+    transition: all 2s linear;
+
+}
+
+.WelcomePage::before{
+  content: "";
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  border-radius:0 20% 0 50%;
+  background-color: rgba(86, 235, 86, 0.644);
+  top:90px;
+  right: -45px;
+  overflow: hidden;
+  animation: movingShape 8s 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+  transition: all 4s linear;
+}
+@keyframes movingShape {
+  0%{
+    border-radius:0 20% 0 50%;
+    transform: translateY(10px);
+  }
+  10%{
+    border-radius:10% 10% 30% 70%;
+        transform: translateY(30px);
+
+  }
+  20%{
+    border-radius: 20% 40% 60% 10%;
+        transform: translateY(40px);
+
+  }
+  30%{
+    border-radius: 60% 0 0 20%;   
+     transform: translateY(60px);
+
+  }
+  40%{
+    border-radius: 30% 10% 20% 60%;
+            transform: translateY(70px);
+
+  }
+  50%{
+    border-radius:0 0 0 50%;
+            transform: translateY(90px);
+
+  }
+  60%{
+    border-radius: 10% 20% 30% 60%;
+            transform: translateY(60px);
+
+  }
+  70%{
+    border-radius:60% 30% 20% 10%;
+            transform: translateY(40px);
+
+  }
+  80%{
+    border-radius:5px 10px 30px 50px;
+            transform: translateY(30px);
+
+  }
+  90%{
+    border-radius: 50% 0 0 50%;
+            transform: translateY(20px);
+
+  }
+  100%{
+    border-radius: 0 10% 10% 0;
+            transform: translateY(0);
+
+  }
+
+}

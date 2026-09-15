@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 export default function notfound() {
@@ -11,9 +12,9 @@ export default function notfound() {
         <div className="text-9xl font-bold text-blue-400 mb-2 glow">404</div>
         <div className="text-xl font-semibold text-blue-200">Page Not Found</div>
         <p className="text-gray-400 text-center mt-4">The page you're looking for doesn't exist or has been moved.</p>
-        <a href="/" className="mt-6 px-6 py-2 bg-blue-600 hover:bg-blue-500 rounded-full text-white font-medium transition-all transform hover:scale-105">
+        <Link href="/welcomePage" className="mt-6 px-6 py-2 bg-blue-600 hover:bg-blue-500 rounded-full text-white font-medium transition-all transform hover:scale-105">
           Go Home
-        </a>
+        </Link>
       </div>
       <div className="back absolute w-full h-full bg-gray-800 border-2 border-blue-400 rounded-lg" />
       <div className="right absolute w-10 h-full bg-blue-600/50 left-full origin-left rounded-r-lg" />

@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { Exo } from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/navbar/page";
-import Footer from "./_components/navbar/footer/page";
 import { cn } from "@/lib/utils";
 import FirstNav from "./_components/FirstNav/page";
 import { Toaster } from "@/components/ui/toast"
 import MyProvider from "./_components/MyProvider/MyProvider";
+import Footer from "./_components/footer/page";
 
 
 

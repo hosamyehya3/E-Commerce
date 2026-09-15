@@ -11,7 +11,7 @@ try {
     headers : {'content-type':'application/JSON'        }
   })
 const payload = await response.json()
-console.log(payload);
+console.log(payload , 'tokennnnn');
 if (response.ok) {
 const cookieStorage =  await cookies();
 cookieStorage.set('userToken' , payload.token , {

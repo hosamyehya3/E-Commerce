@@ -1,7 +1,6 @@
-import { redirect } from 'next/navigation';
+// import { redirect } from 'next/navigation';
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
-import { any } from 'zod';
 
 export async function proxy(reqest:NextRequest){
     const protectedPages = ['/cart' , '/wishList']
@@ -23,18 +22,21 @@ if (!accessToken && protectedPages.some((path)=>pathName.startsWith(path)) ) {
 
 
 if (accessToken && authPages.some((path)=>pathName.startsWith(path)) ) {
-    return NextResponse.redirect(new URL('/home' , reqest.nextUrl));
+    return NextResponse.redirect(new URL('/' , reqest.nextUrl));
 }
 
 return NextResponse.next()
 
+}
 
+export const config = {
+  matcher: [
+    '/cart/:path*',
+    '/wishList/:path*',
+    '/login/:path*',
+    '/register/:path*',
 
-
-
-
-
-
+  ]
 }
 
 
