@@ -6,7 +6,7 @@ export default function loading() {
       <>
         <div className='flex justify-center items-center h-screen text-2xl bg-gray-200'>
           <div className=''>
-            <MoonLoader color='green' />
+            <MoonLoader color='rgb(86, 235, 86)' />
             </div>  
         </div>
         </>

@@ -12,7 +12,7 @@ console.log(payload , 55555555555);
     <div className='container mx-auto bg-gray-200'>
 <div className="p-1 mt-[100px] flex flex-wrap items-center justify-center">
 {payload?.map((pay:any)=>{return (
-  <Link href={`/brandDetails/${pay._id}`}> <div key={pay._id} className="flex-shrink-0 m-6 relative overflow-hidden bg-green-500 rounded-lg max-w-xs shadow-lg group">
+  <Link key={pay._id} href={`/brandDetails/${pay._id}`}> <div key={pay._id} className="flex-shrink-0 m-6 relative overflow-hidden bg-green-500 rounded-lg max-w-xs shadow-lg group">
     <svg className="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform" viewBox="0 0 375 283" fill="none" style={{opacity: '0.1'}}>
       <rect x="159.52" y={175} width={152} height={152} rx={8} transform="rotate(-45 159.52 175)" fill="white" />
       <rect y="107.48" width={152} height={152} rx={8} transform="rotate(-45 0 107.48)" fill="white" />

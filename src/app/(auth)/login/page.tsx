@@ -31,7 +31,7 @@ const isLogin = await signIn('credentials' , {...retData , redirect:false} )
 
     
     if (isLogin?.ok) {
-      navgate.push('/')
+      navgate.push('/home')
       toast.add({
         type: "success",
         description: "Success Login Now.",

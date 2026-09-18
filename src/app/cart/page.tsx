@@ -1,7 +1,10 @@
 import React from 'react'
+import CartComp from '../_components/cartComp/CartComp'
 
 export default function Cart() {
   return (
-    <div>Cart</div>
+    <>
+    <CartComp/>
+    </>
   )
 }

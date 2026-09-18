@@ -7,6 +7,7 @@ import FirstNav from "./_components/FirstNav/page";
 import { Toaster } from "@/components/ui/toast"
 import MyProvider from "./_components/MyProvider/MyProvider";
 import Footer from "./_components/footer/page";
+import Providers from "./_components/tanstackProvider/tanstackProvider";
 
 
 
@@ -30,7 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       {/* <FirstNav/> */}
      
       <body className="min-h-full bg-gray-200  flex flex-col">
-       
+       <Providers>
 <MyProvider>
    <Navbar/>
         {children}
@@ -38,7 +39,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <Footer/>
 </MyProvider>
  
-
+</Providers>
         
      
         </body>

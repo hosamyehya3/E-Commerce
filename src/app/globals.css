@@ -601,7 +601,7 @@ box-shadow: 0 0 10px black;
 
 
 .WelcomePage{
-
+text-shadow: 2px 2px 4px rgba(109, 107, 107, 0.822);
   padding: 30px;
   border:  2px solid transparent;
   border-radius: 10px;

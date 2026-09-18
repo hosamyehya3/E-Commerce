@@ -2,7 +2,7 @@
 // import Slider from "./_components/Slider/Slider";
 import 'animate.css/animate.min.css';
 import Slider from '../_components/Slider/Slider';
-import FeaturedProuducts from '../_components/FeaturedProducts/FeaturedProuducts';
+import FeaturedProuducts from '../FeaturedProducts/page';
 
 export default function Home() {
   return (

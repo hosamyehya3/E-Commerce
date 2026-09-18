@@ -5,6 +5,8 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import img from "../../../../public/assets/images/freshcart-logo.svg";
 import { signOut, useSession } from 'next-auth/react';
+import { useQuery } from '@tanstack/react-query';
+import { CartResponseType } from '@/data/CartType';
 
 export default function Navbar() {
 const session = useSession()
@@ -29,6 +31,21 @@ function handleLogOut(){
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+
+
+const {data:CartData , isLoading} = useQuery<CartResponseType>({
+    queryKey:['GetCart'] ,
+    queryFn:async()=>{
+        const response = await fetch('/api/cart')
+        if (!response) {
+            throw new Error('Faild To Fetch')
+        }
+      return  response.json()
+    }
+})
+
+
+
   return (
     
     <div id="main-nav" className={`fixed top-0 left-0 right-0 z-50 w-full max-w-7xl mx-auto mt-8 my-5 px-4 ${isShrunk ? 'nav-shrunk' : ''}`}>
@@ -38,11 +55,11 @@ function handleLogOut(){
           isShrunk ? 'glass py-2' : 'bg-white py-3'
         }`}
       >
-        <Link href='/welcomePage'>
+        
             <div className="text-xl flex gap-5 font-black text-green-500 tracking-tighter">
           <Image src={img} alt="FreshCart Logo" width={130} height={80} />
         </div>
-        </Link>
+       
     
 
         <div 
@@ -81,16 +98,16 @@ function handleLogOut(){
         </div>
 
         <div className="flex items-center gap-4">
-          {status === 'authenticated' ?<><Link href='/cart'>
+          {status === 'authenticated' ?<><Link href='/wishList'>
            <button className="relative p-2 text-gray-700 hover:text-green-600" aria-label="Favorites">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
           </button>
           </Link>
-         <Link href='/wishList'>
+         <Link href='/cart'>
              <button className="relative p-2 text-gray-700 hover:text-green-600" aria-label="Cart">
-            <span className="absolute top-0 right-0 bg-green-500 text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center">2</span>
+            <span className="absolute top-0 right-0 bg-green-500 text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center">{CartData?.numOfCartItems}</span>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
