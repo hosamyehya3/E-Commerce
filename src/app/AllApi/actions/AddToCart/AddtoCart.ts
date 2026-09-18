@@ -4,7 +4,9 @@ import { GetTokenFunc } from "@/app/utilites/GetAccessToken";
 export async function AddToCart(prodId:string){
 const token = await GetTokenFunc()
 if(!token){
-    throw new Error('UnAuthorized')
+    
+    throw new Error('UnAuthorized');
+
 }
 try {
     

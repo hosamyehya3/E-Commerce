@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function proxy(reqest:NextRequest){
     const protectedPages = ['/cart' , '/wishList']
-    const authPages = ['/login' , '/register']
+    const authPages = ['/login' , '/register' , '/forgetPassword']
 // where the user  want to path 
 const pathName = reqest.nextUrl.pathname
 // get token
@@ -35,6 +35,7 @@ export const config = {
     '/wishList/:path*',
     '/login/:path*',
     '/register/:path*',
+    '/forgetPassword/:path*',
 
   ]
 }

@@ -751,13 +751,13 @@ const isLogin = await signIn('credentials' , {...retData , redirect:false} )
                     Remember me
                   </span>
                 </label>
-                <a
-                  href="#"
+                <Link 
+                  href='/forgetPassword'
                   className="text-sm font-semibold text-green-500 hover:text-green-600 transition-colors duration-300 relative group"
                 >
                   Forgot password?
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-400 to-green-400 group-hover:w-full transition-all duration-300 rounded-full" />
-                </a>
+                </Link>
               </div>
 
               {/* Submit Button */}

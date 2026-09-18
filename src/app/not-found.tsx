@@ -12,7 +12,7 @@ export default function notfound() {
         <div className="text-9xl font-bold text-blue-400 mb-2 glow">404</div>
         <div className="text-xl font-semibold text-blue-200">Page Not Found</div>
         <p className="text-gray-400 text-center mt-4">The page you're looking for doesn't exist or has been moved.</p>
-        <Link href="/welcomePage" className="mt-6 px-6 py-2 bg-blue-600 hover:bg-blue-500 rounded-full text-white font-medium transition-all transform hover:scale-105">
+        <Link href="/home" className="mt-6 px-6 py-2 bg-blue-600 hover:bg-blue-500 rounded-full text-white font-medium transition-all transform hover:scale-105">
           Go Home
         </Link>
       </div>
