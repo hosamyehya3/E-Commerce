@@ -17,7 +17,6 @@ headers : {
 })
 if (!response.ok) throw new Error('UnAuthorized')
     const payload = await response.json()
-console.log('cart' , payload);
 return payload ;
 } catch (error) {
     throw new Error('UnAuthorized')

@@ -11,7 +11,6 @@ export async function ForgetPassword(email: string) {
         });
 
         const payload = await response.json();
-        console.log(payload, 'Forget');
 
         return payload;
     } catch (error) {

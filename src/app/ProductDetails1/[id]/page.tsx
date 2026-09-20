@@ -1,4 +1,6 @@
 import Addbtn from '@/app/_components/Addbtn/Addbtn'
+import BtnWishList from '@/app/_components/BtnWishList/BtnWishList'
+import { WishListFunc } from '@/app/AllApi/actions/AddToWishList/AddToWishList'
 import { getProductDetails1 } from '@/app/AllApi/GetProductDetails'
 import React from 'react'
 
@@ -6,6 +8,8 @@ export default async function productDetails1(props:any) {
 const params = await props.params 
 const {id} = params
 const response = await getProductDetails1(id)
+
+
   return (
     <>
     <div className=" mt-30">
@@ -15,7 +19,10 @@ const response = await getProductDetails1(id)
       <div className="w-full md:w-1/2 px-4 mb-8">
         <img src={response?.imageCover} alt="Product" className="w-full h-auto rounded-lg shadow-md mb-4" id="mainImage" />
         <div className="flex gap-4 py-4 justify-center overflow-x-auto">
-          {response?.images.map((photo:any)=>{return (    <img key={photo._id} src={photo} alt="Thumbnail 1" className="w-[200px] sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"  />
+          {response?.images.map((photo:any , index:number)=>{return (  <div key={index}>
+
+             <img  src={photo} alt="Thumbnail 1" className="w-[200px] sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"  />
+          </div> 
 )})}
 
         </div>
@@ -67,13 +74,8 @@ const response = await getProductDetails1(id)
             </svg>
             Add to Cart</>}/>
 
-
-          <button className="bg-gray-200 flex gap-2 items-center  text-gray-800 px-6 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-            </svg>
-            Wishlist
-          </button>
+          <BtnWishList  prodId={response._id}/>
+       
         </div>
         <div>
           <h3 className="text-lg font-semibold mb-2">Key Features:</h3>

@@ -9,4 +9,6 @@ export async function GetTokenFunc(){
         secret:process.env.NEXTAUTH_SECRET!
     })
     return AccessToken?.token
+    
+    
 }

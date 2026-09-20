@@ -587,7 +587,7 @@ animation: moving 1s ease infinite;
 
 
 .curser:hover{
-  cursor: pointer;
+  cursor: pointer !important;
 }
 .isolate{
   transition: all .7s linear;

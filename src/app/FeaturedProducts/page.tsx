@@ -7,7 +7,7 @@ const ShopCategorey = lazy(() => import('../_components/ShopCategorey/shopCatego
 export default async function FeaturedProuducts() {
   
  const DataOfProducts =  await getProductsApi()
- 
+
   return (
     <>
      <div className='container mx-auto'>
@@ -42,8 +42,7 @@ export default async function FeaturedProuducts() {
           <p className="text-sm text-gray-600 cursor-auto ml-2">${Product.price}</p>
         </del>
         </>}
-     
-        <div className="ml-auto">
+          <div className="ml-auto">
        <Addbtn prodId={Product._id} cls={'curser'} child={<>  <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="currentColor" className="text-green-500" viewBox="0 0 16 16">
             <path fillRule="evenodd"
              d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
@@ -51,6 +50,7 @@ export default async function FeaturedProuducts() {
           </svg></>}/>
        
           </div>
+   
       </div>
     </div>
   

@@ -126,7 +126,7 @@ if (response.statusMsg === "success") {
               </div>
               <p className="hidden text-xs text-red-600 mt-2" id="email-error">Please include a valid email address so we can get back to you</p>
             </div>
-            <button type="submit" className="py-3 btnTrans  px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-[rgb(49,243,49)] hover:text-[rgb(49,243,49)] text-white hover:bg-white hover:border-1  hover:border-[rgb(49,243,49)] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-green-800">Reset password</button>
+            <button type="submit" className="py-3 btnTrans  px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-[rgb(49,243,49)] hover:text-[rgb(49,243,49)] text-white hover:bg-white hover:border-1  hover:border-[rgb(49,243,49)] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-green-800">Submit</button>
           </div>
         </form>
       </div>

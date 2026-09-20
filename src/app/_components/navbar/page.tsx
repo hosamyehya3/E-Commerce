@@ -8,7 +8,8 @@ import { signOut, useSession } from 'next-auth/react';
 import { useQuery } from '@tanstack/react-query';
 import { CartResponseType } from '@/data/CartType';
 
-export default function Navbar() {
+
+export default  function Navbar() {
 const session = useSession()
 console.log(session.status);
 const status = session.status
@@ -43,6 +44,8 @@ const {data:CartData , isLoading} = useQuery<CartResponseType>({
       return  response.json()
     }
 })
+
+
 
 
 

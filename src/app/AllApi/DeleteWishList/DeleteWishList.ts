@@ -1,24 +1,20 @@
 'use server'
 import { GetTokenFunc } from "@/app/utilites/GetAccessToken";
 
-export async function UpdataCart({prodId , count}:{prodId:string , count:number}){
+export async function DeleteWisListItem(ProdId:string){
 const token = await GetTokenFunc()
 if(!token){
     throw new Error('UnAuthorized')
 }
 try {
     
-    const response = await fetch(`https://ecommerce.routemisr.com/api/v2/cart/${prodId}` , {
+    const response = await fetch(`https://ecommerce.routemisr.com/api/v1/wishlist/${ProdId}` , {
 
-method : 'PUT' ,
-body : JSON.stringify({
-    count : count 
-}) ,
+method : 'DELETE' ,
 headers : {
     token : token ,
     'Content-type' : 'application/json'
-} , 
-
+}
 })
 if (!response.ok) throw new Error('UnAuthorized')
     const payload = await response.json()

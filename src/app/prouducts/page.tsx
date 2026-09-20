@@ -19,7 +19,7 @@ async function getProducts() : Promise<ProdType[] | null>{
   }
     
 }
-const DataOfProducts = await getProducts()
+ const DataOfProducts = await getProducts()
 
   return (
     <>

@@ -3,13 +3,13 @@ import { GetCart } from '@/app/AllApi/actions/AddToCart/GetCart'
 import { CartResponseType } from '@/data/CartType'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import React from 'react'
-import { RotateLoader } from "react-spinners";
 import Image from 'next/image'
 import { DeleteCartItems } from '@/app/AllApi/actions/DeleteCartItem'
 import { toast } from '@/components/ui/toast'
 import { UpdataCart } from '@/app/AllApi/actions/UpdataCart'
 import { IoIosCart } from "react-icons/io";
 import Link from 'next/link'
+import { MoonLoader, RotateLoader } from 'react-spinners'
 export default function CartComp() {
   const query = useQueryClient()
   const { data: CartData, isLoading } = useQuery<CartResponseType>({
@@ -67,7 +67,7 @@ export default function CartComp() {
   if (isLoading) {
     return (
       <div className='h-screen flex justify-center items-center '>
-        <RotateLoader color="rgb(86, 235, 86)" size={23} margin={3} speedMultiplier={0.95} />
+        <RotateLoader color="rgb(86,235,86)"/>
       </div>
     )
 
@@ -77,8 +77,8 @@ export default function CartComp() {
   return (
     <>
       {CartData?.numOfCartItems ? <>
-        <div className='h-screen container mx-auto flex justify-center items-center bg-gray-200 my-[170px]'>
-          <section className="w-full bg-white rounded-2xl  dark:bg-[#0A2025] py-9 px-8">
+        <div className='h-screen container mx-auto my-[220px] flex justify-center items-center bg-gray-200 '>
+          <section className="w-full bg-white  rounded-2xl  dark:bg-[#0A2025] py-9 px-8 ">
             <h1 className="text-center text-[#191919] dark:text-white text-[32px] font-semibold leading-[38px]">
               My <span className='text-[rgb(49,243,49)]'>S</span>hopping <span className='text-[rgb(49,243,49)]'>C</span>art
             </h1>
