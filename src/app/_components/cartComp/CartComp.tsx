@@ -126,7 +126,7 @@ export default function CartComp() {
 
                   </tbody>
                   <tfoot>
-                    <tr className="border-t border-gray-400">
+                    <tr className="border-t  border-gray-400">
                       <td className="px-2 py-2" colSpan={3}>
                         <Link href='/home'>
                           <button className="px-8 cursor-pointer border-1 btnTrans border-black hover:border-[rgb(86,235,86)] py-3.5  rounded-[43px] hover:bg-[rgb(86,235,86)] hover:text-white   font-bold className leading-[16px]">

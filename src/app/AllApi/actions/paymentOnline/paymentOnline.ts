@@ -1,13 +1,13 @@
 'use server'
 import { GetTokenFunc } from "@/app/utilites/GetAccessToken";
 
-export async function OrderForm(cartId:string , shippingAddress:{}){
+export async function OnlinePayment(prodId:string , shippingAddress:{}){
 const token = await GetTokenFunc()
 if(!token) throw new Error('UnAuthorized');
     
 try {
     
-    const response = await fetch(`https://ecommerce.routemisr.com/api/v2/orders/${cartId}` , {
+    const response = await fetch(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${prodId}?url=${process.env.NEXTAUTH_URL}` , {
 
 method : 'POST' ,
 body : JSON.stringify({

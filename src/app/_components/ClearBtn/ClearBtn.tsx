@@ -31,7 +31,7 @@ async function clearAll(){
 
   return (
     <>
-          <button onClick={clearAll} className=" cursor-pointer border-1 btnTrans border-black hover:border-[rgb(86,235,86)] py-3 px-10 rounded-[43px] hover:bg-[rgb(86,235,86)] hover:text-white   font-bold className leading-[16px]">
+          <button onClick={clearAll} className=" cursor-pointer border-1 btnTrans border-black hover:border-red-500 py-3 px-10 rounded-[43px] hover:bg-red-500  hover:text-white   font-bold className leading-[16px]">
                           ClearAll
                         </button>
     </>

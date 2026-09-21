@@ -704,3 +704,10 @@ text-shadow: 2px 2px 4px rgba(109, 107, 107, 0.822);
 .btnTrans{
   transition: all .5s ease-out;
 }
+.formOrder{
+  border-radius: 20px;
+  transition: all .5s ease-in-out;
+}
+.formOrder:hover{
+  box-shadow: 0 0 10px black;
+}

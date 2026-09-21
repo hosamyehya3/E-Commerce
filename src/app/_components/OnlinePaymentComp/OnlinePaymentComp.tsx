@@ -1,45 +1,45 @@
 'use client'
-import { OrderForm } from '@/app/AllApi/actions/OrderForm/OrderForm'
-import { SchemaOrder } from '@/app/Schema/SchemaOrder'
+import { OnlinePayment } from '@/app/AllApi/actions/paymentOnline/paymentOnline'
+import { SchemaOnlinePayment } from '@/app/Schema/SchemaOnline'
 import { Button } from '@/components/ui/button'
 import { Field, FieldError, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { toast } from '@/components/ui/toast'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
-export default function OrderFormPage({id}:{id:string}) {
+export default function OnLinePayment({id}:{id:string}) {
   const navgate = useRouter()
   const { control, handleSubmit } = useForm({
     defaultValues: {
       details: "",
       phone: "",
-      city: "",
-      postalCode: "",
-    }, resolver: zodResolver(SchemaOrder),
+      city: ""
+      
+    }, resolver: zodResolver(SchemaOnlinePayment),
     mode: 'onBlur'
   },
 
   )
 
   async function submitForm(formData: any) {
-    const orderFormData = await OrderForm(id , formData)
+    const orderFormDataOnline = await OnlinePayment(id , formData)
 
-console.log(orderFormData , 'Order8888');
+console.log(orderFormDataOnline , 'Order77777');
 
     
-    if (orderFormData?.status === 'success') {
-      navgate.push('/home')
+    if (orderFormDataOnline?.status === 'success') {
+      window.location.href=orderFormDataOnline.session.url
       toast.add({
         type: "success",
         description: "Order created Successfully.",
         
       })
     } else {
+      navgate.push('/home')
       toast.add({
         type: "error",
         description: "Failed to Order.",
@@ -58,7 +58,7 @@ console.log(orderFormData , 'Order8888');
   return <>
   <div className='container mx-auto my-[100px] w-1/2'>
   <div className='border  bg-white my-10  formOrder p-4'>
-      <h1 className='font-bold text-center italic text-2xl '><span className='text-[rgb(49,243,49)]'>P</span>ayment<span className='text-[rgb(49,243,49)]'>C</span>ash</h1>
+      <h1 className='font-bold text-center italic text-2xl '><span className='text-[rgb(49,243,49)]'>O</span>nline <span className='text-[rgb(49,243,49)]'>P</span>ayment</h1>
 
    <form onSubmit={handleSubmit(submitForm)}>
       <div className='my-3 w-3/4 mx-auto'>
@@ -130,28 +130,7 @@ console.log(orderFormData , 'Order8888');
   )}
 />
       </div>
-      <div className='my-3 w-3/4 mx-auto'>
-        <Controller
-  name="postalCode"
-  control={control}
-  render={({ field, fieldState }) => (
-    <Field data-invalid={fieldState.invalid}>
-      <FieldLabel htmlFor={field.name}>PostalCode</FieldLabel>
-      <Input
-      type='text'
-      className='rounded '
-        {...field}
-        id={field.name}
-        aria-invalid={fieldState.invalid}
-        placeholder="Inter Your postalCode"
-        autoComplete="on"
-      />
- 
-      {fieldState.invalid && <FieldError className='font-bold' errors={[fieldState.error]} />}
-    </Field>
-  )}
-/>
-      </div>
+
 
 
 
@@ -161,8 +140,6 @@ console.log(orderFormData , 'Order8888');
       </div>
             
     </form>
-        <h1 className='text-center  italic'>Want To payment by Credit ? <span className='font-bold hover:text-[rgb(86,235,86)]'><Link href={`/onlinePaymentPage/${id}`}>Click Here</Link> </span> </h1>
-
   </div>
 
   </div>
