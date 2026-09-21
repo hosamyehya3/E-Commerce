@@ -74,14 +74,10 @@ const {data:CartData , isLoading} = useQuery<CartResponseType>({
           <ul className="flex gap-5">
             <li>
               <Link href="/home" className={path === '/home' ? 'active' : ''}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/shop" className={path === '/shop' ? 'active' : ''}>
                 Shop
               </Link>
             </li>
+       
             <li>
               <Link href="/brands" className={path === '/brands' ? 'active' : ''}>
                 Brands

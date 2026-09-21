@@ -10,6 +10,7 @@ import { UpdataCart } from '@/app/AllApi/actions/UpdataCart'
 import { IoIosCart } from "react-icons/io";
 import Link from 'next/link'
 import { MoonLoader, RotateLoader } from 'react-spinners'
+import ClearBtn from '../ClearBtn/ClearBtn'
 export default function CartComp() {
   const query = useQueryClient()
   const { data: CartData, isLoading } = useQuery<CartResponseType>({
@@ -67,7 +68,7 @@ export default function CartComp() {
   if (isLoading) {
     return (
       <div className='h-screen flex justify-center items-center '>
-        <RotateLoader color="rgb(86,235,86)"/>
+        <RotateLoader color="rgb(86,235,86)" />
       </div>
     )
 
@@ -77,7 +78,7 @@ export default function CartComp() {
   return (
     <>
       {CartData?.numOfCartItems ? <>
-        <div className='h-screen container mx-auto my-[220px] flex justify-center items-center bg-gray-200 '>
+        <div className=' container mx-auto my-[120px] flex justify-center items-center bg-gray-200 '>
           <section className="w-full bg-white  rounded-2xl  dark:bg-[#0A2025] py-9 px-8 ">
             <h1 className="text-center text-[#191919] dark:text-white text-[32px] font-semibold leading-[38px]">
               My <span className='text-[rgb(49,243,49)]'>S</span>hopping <span className='text-[rgb(49,243,49)]'>C</span>art
@@ -128,16 +129,15 @@ export default function CartComp() {
                     <tr className="border-t border-gray-400">
                       <td className="px-2 py-2" colSpan={3}>
                         <Link href='/home'>
-                            <button className="px-8 cursor-pointer border-1 btnTrans border-black hover:border-[rgb(86,235,86)] py-3.5  rounded-[43px] hover:bg-[rgb(86,235,86)] hover:text-white   font-bold className leading-[16px]">
-                          Return to shop
-                        </button>
+                          <button className="px-8 cursor-pointer border-1 btnTrans border-black hover:border-[rgb(86,235,86)] py-3.5  rounded-[43px] hover:bg-[rgb(86,235,86)] hover:text-white   font-bold className leading-[16px]">
+                            Return to shop
+                          </button>
                         </Link>
-                    
+
                       </td>
-                      <td className="px-2 py-2" colSpan={2}>
-                        {/* <button className="px-8 py-3.5 cursor-pointer bg-[#f2f2f2] rounded-[43px] text-[#4c4c4c] text-sm font-semibold className leading-[16px]">
-                          Update Cart
-                        </button> */}
+                      <td className="px-2 py-2 " colSpan={3}>
+                        <ClearBtn />
+
                       </td>
                     </tr>
                   </tfoot>
@@ -156,9 +156,14 @@ export default function CartComp() {
                 <div className="w-[376px] py-3 shadow-[0px_1px_0px_0px_rgba(229,229,229,1.00)] justify-between items-center flex">
                   <span className="text-[#4c4c4c] text-sm font-normal leading-[21px]">NumOfCartItems:</span><span className="text-[#191919] text-sm font-medium leading-[21px]">{CartData?.numOfCartItems}</span>
                 </div>
-                <button className="w-[376px] btnTrans border-2 border-transparent curser text-white mt-5 px-10 py-4 bg-[rgb(49,243,49)] hover:text-[rgb(49,243,49)] hover:bg-white hover:border-2 hover:border-[rgb(49,243,49)] rounded-[44px] gap-4 text-base font-semibold leading-tight">
-                  Proceed to checkout
-                </button>
+                <Link href={`/orderForm/${CartData.cartId}`}>
+
+                  <button className="w-[376px] btnTrans border-2 border-transparent curser text-white mt-5 px-10 py-4 bg-[rgb(49,243,49)] hover:text-[rgb(49,243,49)] hover:bg-white hover:border-2 hover:border-[rgb(49,243,49)] rounded-[44px] gap-4 text-base font-semibold leading-tight">
+                    Proceed to checkout
+                  </button>
+
+                </Link>
+
               </div>
 
 
@@ -171,8 +176,8 @@ export default function CartComp() {
       </> : <>
         <div className='h-screen flex justify-center items-center '>
           <div>
-            <IoIosCart color='rgb(86,235,86)' size={200}/>
-          <h1 className='font-bold text-4xl text-[rgb(86,235,86)] italic'>Empty Cart</h1>
+            <IoIosCart color='rgb(86,235,86)' size={200} />
+            <h1 className='font-bold text-4xl text-[rgb(86,235,86)] italic'>Empty Cart</h1>
 
 
           </div>
