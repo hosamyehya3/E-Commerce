@@ -10,13 +10,13 @@ export default async function FeaturedProuducts() {
 
   return (
     <>
-     <div className='container mx-auto'>
+     <div className='container mx-auto my-5'>
       <Suspense fallback={<div className='mt-5 flex justify-center items-center'><ScaleLoader /></div> }>
     <ShopCategorey/>
 
       </Suspense>
    
-           <div className='p-2 border-l-3 hover  mt-6 rounded-tl-lg rounded-bl-lg  border-[rgb(49,243,49)] '><h4 className="text-[rgb(49,243,49)] my-2 font-bold text-3xl">FeaturedProuducts</h4></div>
+           <div className='p-2  hover w-1/4 mx-auto  mt-10   text-center  border-[rgb(49,243,49)] '><h4 className="text-[rgb(49,243,49)]  my-2 font-bold text-3xl">FeaturedProuducts</h4></div>
 
     </div>
 

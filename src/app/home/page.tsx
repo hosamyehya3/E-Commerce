@@ -13,7 +13,10 @@ export default function Home() {
         pageList={[
           "/assets/images/blog-img-1.jpeg",
           "/assets/images/blog-img-2.jpeg",
-          "/assets/images/grocery-banner.png"
+          "/assets/images/grocery-banner.png" ,
+          "/assets/images/food5.jpg" ,
+          "/assets/images/banner-4.jpeg" ,
+        
         ]} 
       />
      

@@ -9,6 +9,7 @@ import { Field, FieldError } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { toast } from '@/components/ui/toast'
 import { useRouter } from 'next/navigation'
+import { ResetCode } from '../AllApi/actions/ResetCode/ResetCode'
 
 export default function forgetPasswordPage() {
      const navgate = useRouter()
@@ -23,7 +24,13 @@ export default function forgetPasswordPage() {
     async  function ChangePassword(data:any){
 console.log(data , 9856);
 const response = await  ForgetPassword(data)
+
 console.log(response);
+/////////
+const payload = await ResetCode(response)
+if (payload.message === 'Reset code sent to your email') {
+  return true
+}
 if (response.statusMsg === "success") {
     navgate.push('/home')
        toast.add({
@@ -39,6 +46,21 @@ if (response.statusMsg === "success") {
       })
 }
       }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
   <>
   <div className='container bg-gray-200 flex justify-center items-center h-screen mt[120px]' >

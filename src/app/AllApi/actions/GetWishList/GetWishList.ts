@@ -3,9 +3,9 @@ import { GetTokenFunc } from "@/app/utilites/GetAccessToken";
 
 export async function GetWishList(){
 const token = await GetTokenFunc()
-if(!token){
-    throw new Error('UnAuthorized')
-}
+if(!token)  throw new Error('UnAuthorized')
+   
+
 try {
     
     const response = await fetch(`https://ecommerce.routemisr.com/api/v1/wishlist` , {

@@ -218,25 +218,22 @@ box-shadow: 0 0 10px rgb(86, 235, 86);
     transition: all .5s linear;
 }
 .swiper-button-next , .swiper-button-prev{
-    color: rgb(49, 243, 49) !important;
+    color: rgb(243, 241, 241) !important;
+    filter: drop-shadow(10px 10px 5px black);
 }
 .swiper-pagination-bullet {
     width: 10px !important;
-    background-color:rgb(49, 243, 49) !important ;
+    background-color:white !important ;
+
 }
 .hover{
-    display: inline-block;
     transition: all .3s linear;
+      border-right:5px solid rgb(49, 243, 49);
+      border-left:5px solid rgb(49, 243, 49);
+
 }
 
-.hover:hover {
-  /* background-color: rgb(252, 253, 253); */
-  transform: rotateY(10deg) rotateX(20deg);
-  border-right:5px solid rgb(49, 243, 49);
-  border-top-right-radius: 8px !important;
-  border-bottom-right-radius: 8px !important;
-  box-shadow: 0 0 20px rgb(49, 243, 49);
-}
+
 .imgEdite{
     border-radius: 60px 10px 10px 60px;
     transition: all .5s linear;
@@ -710,4 +707,7 @@ text-shadow: 2px 2px 4px rgba(109, 107, 107, 0.822);
 }
 .formOrder:hover{
   box-shadow: 0 0 10px black;
+}
+.BoxShadow{
+  box-shadow:  0 0 10px rgba(255, 255, 255, 0.822);
 }

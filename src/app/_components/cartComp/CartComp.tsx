@@ -4,12 +4,13 @@ import { CartResponseType } from '@/data/CartType'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import React from 'react'
 import Image from 'next/image'
+import { RiseLoader } from "react-spinners";
+
 import { DeleteCartItems } from '@/app/AllApi/actions/DeleteCartItem'
 import { toast } from '@/components/ui/toast'
 import { UpdataCart } from '@/app/AllApi/actions/UpdataCart'
 import { IoIosCart } from "react-icons/io";
 import Link from 'next/link'
-import { MoonLoader, RotateLoader } from 'react-spinners'
 import ClearBtn from '../ClearBtn/ClearBtn'
 export default function CartComp() {
   const query = useQueryClient()
@@ -68,7 +69,8 @@ export default function CartComp() {
   if (isLoading) {
     return (
       <div className='h-screen flex justify-center items-center '>
-        <RotateLoader color="rgb(86,235,86)" />
+
+      <RiseLoader color="rgb(86,235,86)" /> 
       </div>
     )
 
@@ -159,7 +161,7 @@ export default function CartComp() {
                 <Link href={`/orderForm/${CartData.cartId}`}>
 
                   <button className="w-[376px] btnTrans border-2 border-transparent curser text-white mt-5 px-10 py-4 bg-[rgb(49,243,49)] hover:text-[rgb(49,243,49)] hover:bg-white hover:border-2 hover:border-[rgb(49,243,49)] rounded-[44px] gap-4 text-base font-semibold leading-tight">
-                    Proceed to checkout
+                  {isLoading? 'Loading....' : 'Proceed to checkout'}  
                   </button>
 
                 </Link>

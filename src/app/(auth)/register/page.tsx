@@ -42,7 +42,7 @@ async function submitForm(retData:any){
 console.log(retData);
 const dataOfRegister = await userRegister(retData)
 if (dataOfRegister) {
-navigate.push('/login')
+navigate.push(`/login/${retData}`)
    toast.add({
             type: "success",
             description: "Success Register Now.",

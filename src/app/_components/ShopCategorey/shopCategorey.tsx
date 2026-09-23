@@ -7,8 +7,8 @@ export default async function ShopCategorey() {
     console.log(response);
     
   return (<>
-  <div className='mt-8'>
-    <h2 className='text-2xl text-[rgb(49,243,49)] border-l-4 font-bold px-3 border-l-[rgb(49,243,49)]'>Shop by Category</h2>
+  <div className='my-12 mx-auto w-1/4'>
+    <h2 className='text-2xl text-center  text-[rgb(49,243,49)] border-l-4  border-e-4  border-e-[rgb(49,243,49)] font-bold px-3 border-l-[rgb(49,243,49)]'>Shop by Category</h2>
   </div>
       <div className='flex flex-wrap gap-3'>
         {response?.map((Category:any)=>{return (

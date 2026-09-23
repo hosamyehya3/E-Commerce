@@ -54,7 +54,7 @@ const {data:dataOfWishList} = useQuery({
 console.log(dataOfWishList , 'iiiiii');
 if (dataOfWishList?.status === 'success') {
   query.invalidateQueries({
-    queryKey : GetWishList
+    queryKey : ['GetWishList']
   })
 }
 
