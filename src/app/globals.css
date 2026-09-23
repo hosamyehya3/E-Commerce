@@ -711,3 +711,44 @@ text-shadow: 2px 2px 4px rgba(109, 107, 107, 0.822);
 .BoxShadow{
   box-shadow:  0 0 10px rgba(255, 255, 255, 0.822);
 }
+.foucs{
+  box-shadow: none !important;
+  
+}
+.foucs:focus{
+  border: none !important;
+}
+.demo::before{
+  content: "";
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgba(240, 189, 20, 0.452);
+  position: absolute;
+  top: 100px;
+  right: 50px;
+}
+.demo::after{
+  content: "";
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(211, 123, 7, 0.452);
+  position: absolute;
+  top: 200px;
+  right: 50px;
+}
+.update::before{
+  background-color: rgba(63, 240, 47, 0.452);
+ top: 300px;
+  right: 150px;
+}
+.update::after{
+  background-color: rgba(63, 240, 47, 0.452);
+ bottom: 0px;
+  left: 150px;
+}
+.update1{
+ top: 0px;
+  left: 150px;
+}

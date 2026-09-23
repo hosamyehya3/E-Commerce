@@ -9,7 +9,6 @@ import { Field, FieldError } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { toast } from '@/components/ui/toast'
 import { useRouter } from 'next/navigation'
-import { ResetCode } from '../AllApi/actions/ResetCode/ResetCode'
 
 export default function forgetPasswordPage() {
      const navgate = useRouter()
@@ -26,16 +25,13 @@ console.log(data , 9856);
 const response = await  ForgetPassword(data)
 
 console.log(response);
-/////////
-const payload = await ResetCode(response)
-if (payload.message === 'Reset code sent to your email') {
-  return true
-}
+
+
 if (response.statusMsg === "success") {
-    navgate.push('/home')
+    navgate.push('/resetcode')
        toast.add({
         type: "success",
-        description: "Success Login Now.",
+        description: "Success Check Your Email Now.",
       })
 
 } else{
@@ -63,10 +59,12 @@ if (response.statusMsg === "success") {
 
   return (
   <>
-  <div className='container bg-gray-200 flex justify-center items-center h-screen mt[120px]' >
+  <div className='container mx-auto bg-gray-200 flex justify-center items-center h-screen mt[120px]' >
+    <div className='demo update'></div>
      <main id="content" role="main" className="w-full  max-w-md mx-auto p-6">
   <div className="mt-7 bg-white  rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700 border-2 border-green-300">
     <div className="p-4 sm:p-7">
+       <div className='demo update1'></div>
       <div className="text-center">
         <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">Forgot password?</h1>
         <p className="mt-2 font-medium text-sm text-gray-600 dark:text-gray-400">

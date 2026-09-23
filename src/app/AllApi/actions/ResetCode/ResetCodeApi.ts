@@ -1,7 +1,7 @@
 'use server'
 
 
-export async function ResetCode(resetCode: string) {
+export async function ResetCodeApi(resetCode: string) {
  
 
     try {

@@ -28,7 +28,7 @@ async function submitForm(formData: any) {
   const res = await ChangePassword(formData);
 
   if (res?.message === 'success') {
-    
+    navgate.push('/login')
         toast.add({
         type: "success",
         description: "Success In Change Password.",
@@ -43,8 +43,11 @@ async function submitForm(formData: any) {
 }
   return (
     <>
-    <div className='flex justify-center h-screen items-center bg-gray-200'>
-        <div className='container w-1/2 bg-white p-5 mx-auto BoxShadow rounded-2xl'>
+    <div className='flex justify-center relative h-screen items-center bg-gray-200'>
+
+<div className='demo'></div>
+        <div className='container  w-1/2 bg-white p-5 mx-auto BoxShadow rounded-2xl'>
+        
   <form onSubmit={handleSubmit(submitForm)} className="space-y-5">
               {/* Email Field */}
               <div className='my-3'>
