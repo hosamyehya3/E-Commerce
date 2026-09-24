@@ -14,7 +14,7 @@ export default function BtnDeleteWishList({id}:{id:string}) {
       if (payload.message === 'Product removed successfully to your wishlist') {
    
         query.invalidateQueries({
-          queryKey : ['WishListFunc']
+          queryKey : ['GetWishList']
         })
        
          toast.add({
@@ -34,7 +34,7 @@ export default function BtnDeleteWishList({id}:{id:string}) {
   return (
    <>
                    <span className='relative ms-1 mt-1  curser '>
-<button className='curser p-2 bg-white rounded-sm mt-1 me-1'>
+<button className='curser hover:bg-red-500 hover:text-white p-2 bg-white rounded-sm mt-1 me-1'>
 <IoCloseSharp onClick={()=>{HandleDelete(id)}} className='curser'/>
 </button>
 </span>

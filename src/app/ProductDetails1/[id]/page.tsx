@@ -1,7 +1,7 @@
 import Addbtn from '@/app/_components/Addbtn/Addbtn'
 import BtnWishList from '@/app/_components/BtnWishList/BtnWishList'
-import { WishListFunc } from '@/app/AllApi/actions/AddToWishList/AddToWishList'
 import { getProductDetails1 } from '@/app/AllApi/GetProductDetails'
+
 import React from 'react'
 
 export default async function productDetails1(props:any) {

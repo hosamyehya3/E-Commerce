@@ -41,11 +41,11 @@ export default async function WishListComp() {
 
                 <div className="relative text-white px-6 pb-6 mt-6">
                   <span className="block font-bold  mb-1">Price : {prod.price}</span>
-                  {!prod.priceAfterDiscount ? <span className='mb-1 text-transparent'>.</span> : <span className="block font-bold  mb-1">priceAfterDiscount : {prod.priceAfterDiscount}</span>}
+                   <span className="block font-bold  mb-1">priceAfterDiscount : {prod.priceAfterDiscount?prod.priceAfterDiscount: "0"}</span>
                   <span className="block font-bold  mb-1">quantity : {prod.quantity}</span>
                   <span className="block font-bold  mb-1">sold : {prod.sold}</span>
                   <div className="flex justify-between">
-                    <p className=" font-semibold text-xl line-clamp-3 overflow-hidden">description : {prod.description}</p>
+                    <p className=" font-semibold text-xl line-clamp-2 overflow-hidden">description : {prod.description}</p>
 
                   </div>
                 </div>
