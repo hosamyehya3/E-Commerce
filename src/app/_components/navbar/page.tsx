@@ -60,9 +60,7 @@ const query = useQueryClient()
     enabled: status === 'authenticated', 
   });
 
-if (!CartData) {
-  return
-}
+
 
   return (
     <div id="main-nav" className={`fixed top-0 left-0 right-0 z-50 w-full max-w-7xl mx-auto mt-8 my-5 px-4 ${isShrunk ? 'nav-shrunk' : ''}`}>
@@ -123,7 +121,7 @@ if (!CartData) {
               </Link>
 
               <Link href="/cart">
-                <button className="relative p-2 text-gray-700 hover:text-green-600" aria-label="Cart">
+              {!CartData? "" : <button className="relative p-2 text-gray-700 hover:text-green-600" aria-label="Cart">
                   
                   {CartData?.numOfCartItems > 0 && (
                     <span className="absolute top-0 right-0 bg-green-500 text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center">
@@ -133,7 +131,8 @@ if (!CartData) {
                   <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 ${CartData?.numOfCartItems > 0 ? 'text-red-500' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                   </svg>
-                </button>
+                </button>}
+                
               </Link>
             </>
           )}
